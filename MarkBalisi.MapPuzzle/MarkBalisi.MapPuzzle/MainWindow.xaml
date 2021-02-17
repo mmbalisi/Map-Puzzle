@@ -8,6 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <m:Map x:Name= "Map" CredentialsProvider="0lAtOclKVY3qx34WzZyI~Bw42L0ohdbxV-jTbqJ7QjQ~Ag2LrkNQbGWQl-7kuMy23VWpn_1I9FP5QL0QYNqqLAyaWnJFSlSWhJi8wdL8L4jE" Mode="Aerial"/>
+        <m:Map Name="Map" CredentialsProvider="0lAtOclKVY3qx34WzZyI~Bw42L0ohdbxV-jTbqJ7QjQ~Ag2LrkNQbGWQl-7kuMy23VWpn_1I9FP5QL0QYNqqLAyaWnJFSlSWhJi8wdL8L4jE" Center="37.806029,-122.407007" MouseDoubleClick="Map_MouseDoubleClick"/>
     </Grid>
 </Window>

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Maps.MapControl.WPF;
 
 namespace MarkBalisi.MapPuzzle
 {
@@ -23,6 +24,27 @@ namespace MarkBalisi.MapPuzzle
         public MainWindow()
         {
             InitializeComponent();
+            Map.Center = new Microsoft.Maps.MapControl.Location(14.877223790792712, 120.45178327709078);
+            Map.ZoomLevel = 13;
+        }
+        private void Map_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+
+            Point mousePosition = e.GetPosition(this);
+
+            Location pinLocation = Map.ViewportPointToLocation(mousePosition);
+
+            Pushpin pin = new Pushpin();
+            pin.Location = pinLocation;
+            pin.MouseDown += Map_PinOnclickEvent;
+            Map.Children.Add(pin);
+        }
+        private void Map_PinOnclickEvent(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            e.Handled = true;
+            Pushpin pin = sender as Pushpin;
+            MessageBox.Show("Lat:" + pin.Location.Latitude + "Long:" + pin.Location.Longitude);
         }
     }
 }
